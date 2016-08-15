@@ -1,0 +1,15 @@
+<!-- accounts/templates/accounts/editar_email.html -->
+
+{% extends 'accounts/base_accounts.html' %}
+
+{% block title %}Editar email{% endblock title %}
+
+{% block accounts_content %}
+    <h2 class="page-header">Editar Email</h2>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary" type="submit">Actualizar Email</button>
+        <a href="{% url 'accounts.index' %}" class="btn btn-warning" type="submit">Cancelar</a>
+    </form>
+{% endblock accounts_content %}

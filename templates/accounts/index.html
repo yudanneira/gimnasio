@@ -1,0 +1,18 @@
+{% extends 'accounts/base_accounts.html' %}
+
+{% block title %}Perfil de usuario{% endblock title %}
+
+{% block header %}
+	
+{% endblock header %}
+
+{% block accounts_content %}
+<div class="page-header"><h4>Perfil de {{user.username}}</h4></div>
+    <h5>Bienvenido</h5>
+    <br>
+    <div>
+        <img src="/media/{{ user.userprofile.photo }}" alt="Imagen de {{ user.username }}" />
+
+        <h1>{{ user.userprofile.photo}}</h1>
+    </div>
+{% endblock accounts_content %}

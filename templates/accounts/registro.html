@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Registro de usuario{% endblock title %}
+
+{% block header %}
+	<div class="col-md-6 col-sm-offset-4">
+		<h3>Registro de Usuarios</h3>
+	</div>
+{% endblock header %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6 col-sm-offset-3">
+			<form method="post" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                 <button type="reset" class="btn btn-default">Cancelar</button>
+       			 <button type="submit" class="btn btn-primary">Registrar</button>
+            </form>
+
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,82 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <title>{% block title %} Document {% endblock %}</title>
+</head>
+
+<body>
+	{% block navbar %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'gym.index' %}">GYM</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav">
+        <li><a href="{% url 'about' %}">Acerda de</a></li>
+        <li><a href="{% url 'contact' %}">contanco</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Grupos Musculares <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Pecho</a></li>
+            <li><a href="#">Espalda</a></li>
+            <li><a href="#">Pierna</a></li>
+            <li><a href="#">Hombro</a></li>
+            <li><a href="#">Biceps</a></li>
+            <li><a href="#">triceps</a></li>
+            <li class="divider"></li>
+           </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'accounts.index' %}">{{ user.username }}</a></li>
+          <li><a href="{% url 'accounts.logout' %}">Logout</a></li>
+        {% else %}
+          <li><a href="{% url 'accounts.registro' %}">Registro</a></li>
+          <li><a href="{% url 'accounts.login' %}">Login</a></li>
+        {% endif %}
+      </ul>
+     
+    </div>
+  </div>
+</nav>
+	{% endblock %}
+
+	{% block header %}
+		<h1>header base</h1>
+	{% endblock %}
+
+
+
+	{% block content %}
+		<h1>content base</h1>
+	{% endblock %}
+
+	{% block footer %}
+	<footer>
+      <div>
+        <p class="text-center">ING Yudan Neira ©</p>
+        <p class="text-center">Colombia 2016</p>
+
+      </div>
+  </footer>
+	{% endblock %}
+
+</body>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js" ></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+</html>

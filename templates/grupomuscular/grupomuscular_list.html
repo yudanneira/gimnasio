@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Grupos Musculares {% endblock title %}
+{% block header %}
+	<h2>Grupos Musculares</h2>
+{% endblock %} 
+
+{% block content %}
+
+<div>
+    <table border="1px">
+        <tr>
+            {% for p in object_list %}
+                <td>
+                    <div>{{ p.nombre }}</div>
+                    <div>
+                        <a href="{% url "grupo-detail" p.id %}">
+                            <img src="{% static p.photo %}" style="width:200px;height:200px"/>
+                        </a>
+                    </div>
+                </td>
+            {% endfor %}
+        </tr>
+    </table>
+</div>
+
+
+{% endblock %}

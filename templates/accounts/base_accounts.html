@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-2">
+            <div class="list-group">
+                <a href="{% url 'accounts.editar_email' %}" class="list-group-item">Editar email</a>
+                <a href="{% url 'accounts.editar_contrasena' %}" class="list-group-item">Editar contraseña</a>
+                <a href="#" class="list-group-item">Editar foto</a>
+            </div>
+        </div>
+        <div class="col-md-10">
+                    {% block accounts_content %}{% endblock accounts_content %}
+        </div>
+    </div>
+{% endblock  %}
